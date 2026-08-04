@@ -3,8 +3,8 @@
  *
  * Periodic Table Printer Interface
  *
- * @author J. Dermoudy
- * @version 12/7/2026
+ * @author Bishesh kc and jeena mahat
+ * @version 04/08/2025
  * 
  * This file is COMPLETE.
  * 

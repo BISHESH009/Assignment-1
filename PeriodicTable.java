@@ -3,8 +3,8 @@
  *
  * Periodic Table Printer Class
  *
- * @author <<Insert student IDs and names here>>
- * @version <<Insert date of completion here>>
+ * @author Bishesh kc and jeena Mahat
+ * @version 04/08/2026
  */
 
 
