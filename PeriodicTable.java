@@ -5,6 +5,7 @@
  *
  * @author Bishesh kc and jeena Mahat
  * @version 04/08/2026
+ * work completed: 50:50
  */
 
 
@@ -30,12 +31,13 @@ public class PeriodicTable implements PeriodicTableInterface
     protected final DecimalFormat FMT=new DecimalFormat("000");
     
     // Non-final Instance Variables
-    protected int start;
-    protected int stop;
-    protected boolean show;
-    protected boolean printLan;
-    protected boolean printAct;
+    protected int start;   // atomic number of first element to display
+    protected int stop;    // atomic number of last element to display
+    protected boolean show; // whether to display the Lanthanum/Actinium groups
+    protected boolean printLan; //true if the display range includes the Lanthanum group
+    protected boolean printAct; // true if the display range includes the Actinium group
 
+ 
 
     /**
      * PeriodicTable() -- Constructor
@@ -47,10 +49,11 @@ public class PeriodicTable implements PeriodicTableInterface
      */
     public PeriodicTable()
     {
+        String answer;
        Scanner input = new Scanner(System.in);
 
         System.out.print("Print  Lanthanum/Actinium groups if necessary [Y/N]: ");
-        String answer = input.nextLine();
+         answer = input.nextLine();
 
      if (answer.length() > 0 && (answer.charAt(0) == 'Y' || answer.charAt(0) == 'y'))
     {
@@ -59,6 +62,7 @@ public class PeriodicTable implements PeriodicTableInterface
     else
     {
         show = false;
+        System.out.println("...N assumed...");
     }
         System.out.print("Enter number of first element to print: ");
         start = input.nextInt();
@@ -72,6 +76,7 @@ System.out.print("Enter number of last element to print: ");
         if (stop < start || stop > 118)
 {
        stop = 118;
+       System.out.println("...118 assumed...");
 }
 printLan = false;
 printAct = false;
@@ -89,13 +94,17 @@ printAct = false;
      */
     public void printTable()
     {
+        String symbol;      // chemical symbol of the current element
+    String group;       // raw group value read from TABLE
+    int groupNumber;    // group number as an integer, used for column placement
+
     System.out.println("\n Periodic Table");
     System.out.println(" ==============");
     for (int i = start; i <= stop; i++)
 {
-String symbol = TABLE[i - 1][0];
-String group = TABLE[i - 1][1];
-int groupNumber = Integer.parseInt(group);
+ symbol = TABLE[i - 1][0];
+ group = TABLE[i - 1][1];
+ groupNumber = Integer.parseInt(group);
 
         if (groupNumber <= -11 && groupNumber >= -25)
 
